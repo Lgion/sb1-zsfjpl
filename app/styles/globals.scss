@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F7F7F7;
+  --foreground: #2D3436;
+  --primary: #FF6B6B;
+  --secondary: #4ECDC4;
+  --success: #6BCB77;
+  --warning: #FFD93D;
+  --error: #FF6B6B;
+  --card: #FFFFFF;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.container {
+  @apply px-4;
+}
+
+.navbar {
+  @apply fixed top-0 left-0 right-0 bg-white shadow-md z-50 max-w-[480px] mx-auto;
+  
+  &__content {
+    @apply flex items-center justify-between p-4;
+  }
+
+  &__categories {
+    @apply overflow-x-auto flex gap-2 p-4 whitespace-nowrap;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.category-pill {
+  @apply px-4 py-2 rounded-full bg-gray-100 text-sm font-medium;
+  
+  &--active {
+    @apply bg-primary text-white;
+  }
+}
+
+.product-card {
+  @apply bg-card rounded-lg shadow-sm p-4 mb-4;
+
+  &__header {
+    @apply flex justify-between items-start mb-2;
+  }
+
+  &__title {
+    @apply text-lg font-semibold;
+  }
+
+  &__price {
+    @apply text-primary font-bold;
+  }
+
+  &__description {
+    @apply text-sm text-gray-600 mb-4;
+  }
+
+  &__actions {
+    @apply flex justify-between items-center;
+  }
+
+  &__quantity {
+    @apply flex items-center gap-2;
+  }
+}
+
+.modal {
+  @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4;
+
+  &__content {
+    @apply bg-white rounded-lg w-full max-w-[440px] max-h-[90vh] overflow-y-auto;
+  }
+
+  &__header {
+    @apply p-4 border-b;
+  }
+
+  &__body {
+    @apply p-4;
+  }
+}
+
+.cart-button {
+  @apply fixed bottom-4 left-4 right-4 bg-primary text-white py-3 px-6 rounded-lg 
+         flex items-center justify-between max-w-[440px] mx-auto;
+}
+
+.quantity-control {
+  @apply flex items-center gap-2 bg-gray-100 rounded-lg p-1;
+
+  button {
+    @apply w-8 h-8 flex items-center justify-center rounded-md bg-white shadow-sm;
+  }
+
+  span {
+    @apply w-8 text-center font-medium;
+  }
+}
